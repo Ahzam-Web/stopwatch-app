@@ -1,9 +1,13 @@
 let interval_handler;
 
 function handleStartWatch(){
+    //if watch already running
     if(interval_handler != undefined || interval_handler != null){
+        pauseWatch();
         return;
     }
+
+    playWatch();
 
     interval_handler = setInterval(function(){
         let m_sec_span = document.querySelector('.m_sec');
@@ -41,14 +45,25 @@ function handleStartWatch(){
 }
 
 function handleStopWatch(){
-    handlePauseWatch();
+    pauseWatch();
     document.querySelector('.m_sec').textContent = '00';
     document.querySelector('.seconds').textContent = '00';
     document.querySelector('.minutes').textContent = '00';
     document.querySelector('.hours').textContent = '00';
 }   
 
-function handlePauseWatch(){
+
+function pauseWatch(){
+    let button = document.querySelector('.main-btn');
     clearInterval(interval_handler);
     interval_handler = null;
+
+    button.innerHTML = `<i class="fa-solid fa-play fa-sm"></i>`;
+    button.setAttribute('title', 'Start/Resume');
+}
+
+function playWatch(){
+    let button = document.querySelector('.main-btn');
+    button.innerHTML = `<i class="fa-solid fa-pause fa-sm"></i>`;
+    button.setAttribute('title', 'Pause');
 }

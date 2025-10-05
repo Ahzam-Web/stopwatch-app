@@ -3,22 +3,39 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="assets/style.css">
     </head>
     <body>
-        <div>
-            <span class="hours">00</span>
-            <span>:</span>
-            <span class="minutes">00</span>
-            <span>:</span>
-            <span class="seconds">00</span>
-            <span>:</span>
-            <span class="m_sec">00</span>
+        <div class="main-clock-div">
+            <div class="hours-div">
+                <span>H</span>
+                <span class="hours">00</span>
+            </div>
+
+            <div class="min-div">
+                <span>M</span>
+                <span class="minutes">00</span>
+            </div>
+
+            <div class="seconds-div">
+                <span>S</span>
+                <span class="seconds">00</span>
+            </div>
+
+            <div class="msec-div">
+                <span>msec</span>
+                <span class="m_sec">00</span>
+            </div>
         </div>
 
-        <div>
-            <button onclick="handleStartWatch()">Start/Resume</button>
-            <button onclick="handlePauseWatch()">Pause</button>
-            <button onclick="handleStopWatch()">Stop</button>
+        <div class="buttons-div">
+            <button class="main-btn" onclick="handleStartWatch()" title="Start/Resume">
+                <i class="fa-solid fa-play fa-sm"></i>
+            </button>
+            <button class="stop-btn" onclick="handleStopWatch()" title="reset">
+                <i class="fa-solid fa-rotate-right fa-sm"></i>
+            </button>
         </div>
         <script src="assets/stopwatch_app.js"></script>
     </body>
